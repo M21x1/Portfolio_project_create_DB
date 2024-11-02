@@ -1,0 +1,59 @@
+/*// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table restaurants {
+  id integer [primary key]
+  name varchar
+  created_at timestamp 
+}
+
+Table categories {
+  id integer [primary key]
+  restaurant_id integer
+  name varchar
+  created_at timestamp
+}
+
+Table dishes {
+  id integer [primary key]
+  category_id integer
+  restaurant_id integer
+  name varchar
+  price integer
+  status text [note: 'Dish status']
+  created_at timestamp
+}
+
+Table orders {
+  id integer [primary key]
+  customer_id integer
+  status text [note: 'Dish status']
+  created_at timestamp
+}
+
+Table order_items {
+  order_id integer
+  dish_id integer
+  quantity integer
+}
+
+Table customers {
+  id integer [primary key]
+  full_name varchar
+  email varchar
+  gender varchar
+  birthday varchar
+  created_at timestamp
+}
+
+Ref: dishes.category_id > categories.id // many-to-one
+
+Ref: categories.restaurant_id > restaurants.id
+
+Ref: dishes.restaurant_id > restaurants.id
+
+ref: dishes.id < order_items.dish_id
+
+ref: order_items.order_id > orders.id
+
+ref: customers.id < orders.customer_id*/
